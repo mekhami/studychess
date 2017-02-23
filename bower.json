@@ -1,0 +1,21 @@
+{
+  "name": "studychess",
+  "description": "Study Chess with People",
+  "main": "index.js",
+  "authors": [
+    "Lawrence Vanderpool"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "^5.5.3"
+  }
+}
