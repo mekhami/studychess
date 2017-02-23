@@ -1,0 +1,21 @@
+{
+    "default": {
+        "djangorestframework": "==3.5.4",
+        "markdown": "*",
+        "django-filter": "==1.0.1",
+        "django": "*",
+        "Markdown": "==2.6.8",
+        "Django": "==1.10.5"
+    },
+    "develop": {},
+    "_meta": {
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ],
+        "requires": {},
+        "Pipfile-sha256": "9dff09666dae9fa3b6fd75b89d81b27754a4b6a215f43c7a1f67635f026c727c"
+    }
+}
