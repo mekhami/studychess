@@ -3,3 +3,4 @@ studychess/db.sqlite3
 **/__pycache__/
 node_modules/
 bower_components/
+studychess/build/

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-clean-css": "^3.0.3",
     "gulp-gzip": "^1.4.0",
     "gulp-livereload": "^3.8.1",
