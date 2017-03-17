@@ -1,10 +1,6 @@
 var gulp = require('gulp'),
     browserify = require('browserify'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
-    filter = require('gulp-filter'),
-    babel = require('gulp-babel'),
     del = require('del'),
     source = require('vinyl-source-stream'),
     livereload = require('gulp-livereload'),
@@ -17,7 +13,6 @@ var folder = {
 
 gulp.task('sass', function() {
     return gulp.src([folder.src + '*.scss'])
-        .pipe(filter('**/*.scss'))
         .pipe(sass())
         .pipe(gulp.dest(folder.build + 'css'))
         .pipe(livereload());
@@ -32,7 +27,7 @@ gulp.task('js', function() {
 });
 
 
-gulp.task('watch', ['clean', 'js', 'sass'], function() {
+gulp.task('watch', ['js', 'sass'], function() {
     livereload.listen();
     gulp.watch([folder.src + '*.js', '!studychess/{build,build/**}'], ['js']);
     gulp.watch(folder.src + '*.scss', ['sass']);
