@@ -43,4 +43,4 @@ gulp.task('clean', function() {
     return del([folder.build + '*']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['clean', 'watch']);
