@@ -13,7 +13,9 @@ var folder = {
 
 gulp.task('sass', function() {
     return gulp.src([folder.src + '*.scss'])
-        .pipe(sass())
+        .pipe(sass()).on('error', function(err){
+            this.emit('end');
+        })
         .pipe(gulp.dest(folder.build + 'css'))
         .pipe(livereload());
 });
@@ -31,6 +33,7 @@ gulp.task('watch', ['js', 'sass'], function() {
     livereload.listen();
     gulp.watch([folder.src + '*.js', '!studychess/{build,build/**}'], ['js']);
     gulp.watch(folder.src + '*.scss', ['sass']);
+    gulp.watch(folder.build + '*.css').on('change', livereload.changed);
     gulp.watch(folder.src + '*.html').on('change', livereload.changed);
 });
 

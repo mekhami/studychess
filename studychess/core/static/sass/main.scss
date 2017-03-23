@@ -1,3 +1,29 @@
 body {
-    background: grey;
+    font-family: 'Open Sans', sans-serif;
+}
+section {
+    margin: 10px auto 30px auto;
+}
+.content {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 15px 15px 15px;
+    margin-top: 100px;
+
+    h1 {
+        text-align: center;
+        background-color: yellow;
+    }
+    .row {
+        border: 1px solid pink;
+        padding: 10px 10px 10px 10px;
+        margin: 10px auto 10px auto;
+    }
+    .columns {
+        background: #048CB9;
+        color: #FFF;
+        padding: 20px;
+        margin: 0 5px 0 5px;
+    }
 }

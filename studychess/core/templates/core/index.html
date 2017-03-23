@@ -1,5 +1,23 @@
 {% extends 'core/base.html' %}
+{% load static %}
 {% block content %}
-    <h1>Index</h1>
-    <p>This is the index for the site..</p>
+    {% verbatim %}
+    <header>
+        <h1>Find a Partner!</h1>
+    </header>
+    <section name="main-control ac-container" id="app">
+        <div class="row text-center">
+            <p>{{message}}</p>
+        </div>
+        <div class="row text-center">
+            <p>{{message}}</p>
+        </div>
+        <div class="row text-center">
+            <p>{{message}}</p>
+        </div>
+        <div class="row text-center">
+            <p>{{message}}</p>
+        </div>
+    </section>
+{% endverbatim %}
 {% endblock %}
