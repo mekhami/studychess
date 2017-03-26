@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+import dj_database_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q!xnf4astw(5f+(&slh3!r-mvn3gt$%qnfxja0iqpldp0t!eaa'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['DEBUG'] == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -83,6 +85,8 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.config(default='postgres://db:5432')
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -123,3 +127,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build')]
 STATIC_ROOT = BASE_DIR + '/static/'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://redis:6379')],
+        },
+        "ROUTING": "core.routing.channel_routing",
+    },
+}

@@ -3,9 +3,12 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [packages]
-markdown = "*"
 django-filter = "*"
-django = "*"
 channels = "*"
 djangorestframework = "*"
 django-livereload = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+Markdown = "*"
+Django = "*"
+asgi_redis = "*"
