@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Study Chess with People",
   "main": "index.js",
+  "browser": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
+  },
   "dependencies": {
     "browserify": "^14.1.0",
     "vinyl-source-stream": "^1.1.0",

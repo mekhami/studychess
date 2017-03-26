@@ -2,21 +2,20 @@
 {% load static %}
 {% block content %}
     {% verbatim %}
+    <div>
+        <label for="form-name">Username:</label>
+        <input v-model="name">
+        <label for="form-site">Site:</label>
+        <input v-model="site">
+        <label for="form-topic">Topic to Study:</label>
+        <input v-model="topic">
+    </div>
     <header>
         <h1>Find a Partner!</h1>
     </header>
     <section name="main-control ac-container" id="app">
-        <div class="row text-center">
-            <p>{{message}}</p>
-        </div>
-        <div class="row text-center">
-            <p>{{message}}</p>
-        </div>
-        <div class="row text-center">
-            <p>{{message}}</p>
-        </div>
-        <div class="row text-center">
-            <p>{{message}}</p>
+        <div>
+            <player v-for="player in players" v-bind:player="player"></player>
         </div>
     </section>
 {% endverbatim %}

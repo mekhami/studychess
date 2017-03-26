@@ -22,7 +22,9 @@ gulp.task('sass', function() {
 
 gulp.task('js', function() {
     return browserify('studychess/core/static/js/main.js')
-        .bundle()
+        .bundle().on('error', function(err){
+            this.emit('end');
+        })
         .pipe(source('bundle.js'))
         .pipe(gulp.dest(folder.build + 'js'))
         .pipe(livereload());
