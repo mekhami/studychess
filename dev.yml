@@ -8,3 +8,4 @@ services:
       - "35729:35729"
     volumes:
       - .:/var/www
+      - /var/www/node_modules
