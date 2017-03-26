@@ -9,3 +9,12 @@ services:
     volumes:
       - .:/var/www
       - /var/www/node_modules
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis
+    ports:
+        - "6379"
+  db:
+    image: postgres
