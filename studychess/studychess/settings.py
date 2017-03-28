@@ -85,7 +85,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(default='postgres://db:5432')
+DATABASES['default'] = dj_database_url.config(default='postgres://postgres@db:5432/postgres')
 
 
 # Password validation

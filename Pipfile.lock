@@ -1,21 +1,125 @@
 {
-    "default": {
-        "djangorestframework": "==3.5.4",
-        "markdown": "*",
-        "django-filter": "==1.0.1",
-        "django": "*",
-        "Markdown": "==2.6.8",
-        "Django": "==1.10.5"
-    },
-    "develop": {},
     "_meta": {
+        "hash": {
+            "sha256": "19017effebe2205bfe495124d59e84d0d33cdc1f0c282b4f15e85c2fabd1a38b"
+        },
+        "requires": {},
         "sources": [
             {
                 "url": "https://pypi.python.org/simple",
                 "verify_ssl": true
             }
-        ],
-        "requires": {},
-        "Pipfile-sha256": "9dff09666dae9fa3b6fd75b89d81b27754a4b6a215f43c7a1f67635f026c727c"
-    }
+        ]
+    },
+    "default": {
+        "Automat": {
+            "hash": "sha256:294e91c3c52e3c2d3123230ed605e5a4b09cfc487716c9d218d118e2ef57c5c1",
+            "version": "==0.5.0"
+        },
+        "Django": {
+            "hash": "sha256:2cfb83859bfaa10e2bd586340bead27c69fdcaa21fa683a008cc712482c26726",
+            "version": "==1.10.6"
+        },
+        "Markdown": {
+            "hash": "sha256:0ac8a81e658167da95d063a9279c9c1b2699f37c7c4153256a458b3a43860e33",
+            "version": "==2.6.8"
+        },
+        "Twisted": {
+            "hash": "sha256:dbf211d70afe5b4442e3933ff01859533eba9f13d8b3e2e1b97dc2125e2d44dc",
+            "version": "==17.1.0"
+        },
+        "appdirs": {
+            "hash": "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e",
+            "version": "==1.4.3"
+        },
+        "asgi_redis": {
+            "hash": "sha256:0c308ef0c35307bfe66cb17388a2a748468e37a2e0f34a9a2ea9f2d867531517",
+            "version": "==1.1.0"
+        },
+        "asgiref": {
+            "hash": "sha256:dac4b6782ae55a5e7bb03cfc51e76e71e6cc7a4deb3bd1303c6b6cdc510387e8",
+            "version": "==1.0.1"
+        },
+        "attrs": {
+            "hash": "sha256:c59426b15b45e39a7bc408eb6ba7e7188d9532764f873cc691199ddd975c97ef",
+            "version": "==16.3.0"
+        },
+        "autobahn": {
+            "hash": "sha256:16786a0cde4ebee3e4106c358dc76129d946f20bd04827eee130da8afea0289e",
+            "version": "==0.18.0"
+        },
+        "beautifulsoup4": {
+            "hash": "sha256:0a91347d5a4ab2196407ff4d3d758f2e712cae9bdfa3fd1eb0f83edea95e0d8d",
+            "version": "==4.5.3"
+        },
+        "channels": {
+            "hash": "sha256:25daa75b8d2a9c6a62ffd84a806ca82e1e3ef3db500fb0b33d955c469cd99b25",
+            "version": "==1.1.1"
+        },
+        "constantly": {
+            "hash": "sha256:dd2fa9d6b1a51a83f0d7dd76293d734046aa176e384bf6e33b7e44880eb37c5d",
+            "version": "==15.1.0"
+        },
+        "daphne": {
+            "hash": "sha256:0ed2c517086f6b2dc54a8c40ebb282696e0085d6d642873117853ab7874c721c",
+            "version": "==1.1.0"
+        },
+        "dj-database-url": {
+            "hash": "sha256:e16d94c382ea0564c48038fa7fe8d9c890ef1ab1a8ec4cb48e732c124b9482fd",
+            "version": "==0.4.2"
+        },
+        "django-filter": {
+            "hash": "sha256:a6a1b59fc7c9c5da17af1c5c98490f89d2df26b9501934a54d814414af9ee1ac",
+            "version": "==1.0.2"
+        },
+        "django-livereload": {
+            "hash": "sha256:b64bb1fc8fa9a99c2386a180d5723bf18024c66174f7d33d5071b628ba029e83",
+            "version": "==1.7"
+        },
+        "djangorestframework": {
+            "hash": "sha256:3dc4bb6377dd1d58d8e2adc908d4f2e3bca5d8d0fb8323c49f57c8c8d407f6ec",
+            "version": "==3.6.2"
+        },
+        "incremental": {
+            "hash": "sha256:cc00a35f9e9621ddec0a5e7d17271f3f26244873c4aec67eda06f2db8302e04b",
+            "version": "==16.10.1"
+        },
+        "msgpack-python": {
+            "hash": "sha256:1a2b19df0f03519ec7f19f826afb935b202d8979b0856c6fb3dc28955799f886",
+            "version": "==0.4.8"
+        },
+        "packaging": {
+            "hash": "sha256:99276dc6e3a7851f32027a68f1095cd3f77c148091b092ea867a351811cfe388",
+            "version": "==16.8"
+        },
+        "psycopg2": {
+            "hash": "sha256:9c9fe11f87c44e83620b2273f40338e3c25fdbfd34986dddc77e840e0acd25bc",
+            "version": "==2.7.1"
+        },
+        "pyparsing": {
+            "hash": "sha256:fee43f17a9c4087e7ed1605bd6df994c6173c1e977d7ade7b651292fab2bd010",
+            "version": "==2.2.0"
+        },
+        "redis": {
+            "hash": "sha256:97156b37d7cda4e7d8658be1148c983984e1a975090ba458cc7e244025191dbd",
+            "version": "==2.10.5"
+        },
+        "setuptools": {
+            "hash": "sha256:e436d8c9dcf67ea8902bfa7cce1ef698f36bf303f13b4f62a5668891ecd380dd",
+            "version": "==34.3.3"
+        },
+        "six": {
+            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1",
+            "version": "==1.10.0"
+        },
+        "txaio": {
+            "hash": "sha256:0bf5257025b8cdf04cd4068de9a88cf994e504fd598fb8f689226fc6131ab33b",
+            "version": "==2.6.1"
+        },
+        "zope.interface": {
+            "hash": "sha256:8780ef68ca8c3fe1abb30c058a59015129d6e04a6b02c2e56b9c7de6078dfa88",
+            "version": "==4.3.3"
+        }
+    },
+    "develop": {}
 }
