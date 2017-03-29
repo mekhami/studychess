@@ -1,21 +1,40 @@
+import json
+
+from channels import Group
 from channels.sessions import channel_session
-from django.core import serializers
 
 from .models import Post
 
 
 @channel_session
 def ws_message(message):
-    message.reply_channel.send({
-        "text": message.content["text"],
-    })
+    post = Post.objects.create(
+        name=message.content['name'],
+        description=message.content['description'],
+        site=message.content['site']
+    )
+    message.channel_session['post'] = post.id
 
 
 @channel_session
 def ws_connect(message):
-    current_listings = Post.objects.all()
-    serialized = serializers.serialize('json', current_listings)
+    current_listings = [post.as_dict() for post in Post.objects.all()]
+    response = {
+        "players": json.dumps(current_listings),
+        "type": "initial"
+    }
+    response = json.dumps(response)
     message.reply_channel.send({
         "accept": True,
-        "text": serialized,
+        "text": response,
     })
+    Group("listeners").add(message.reply_channel)
+
+
+@channel_session
+def ws_disconnect(message):
+    try:
+        Post.objects.get(id=message.channel_session['post']).delete()
+    except KeyError:
+        pass
+    Group("listeners").discard(message.reply_channel)

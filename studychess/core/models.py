@@ -1,4 +1,7 @@
+import json
+
 from django.db import models
+from channels import Group
 from channels.binding.websockets import WebsocketBinding
 
 
@@ -15,6 +18,29 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        message = {'type': 'add', 'players': [self.as_dict()]}
+        print(message)
+        Group('listeners').send({
+            'text': json.dumps(message),
+        })
+
+    def as_dict(self):
+        return {
+            'pk': self.pk,
+            'name': self.name,
+            'description': self.description,
+            'site': self.site
+        }
+
+    def delete(self):
+        print('called')
+        Group("listeners").send({
+            'text': json.dumps({'player': self.pk, 'type': 'delete'})
+        })
+        super().delete()
 
 
 class PostBinding(WebsocketBinding):
