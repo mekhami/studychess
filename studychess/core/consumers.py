@@ -8,10 +8,11 @@ from .models import Post
 
 @channel_session
 def ws_message(message):
+    data = json.loads(message.content['text'])
     post = Post.objects.create(
-        name=message.content['name'],
-        description=message.content['description'],
-        site=message.content['site']
+        name=data['name'],
+        description=data['description'],
+        site=data['site']
     )
     message.channel_session['post'] = post.id
 

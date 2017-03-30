@@ -2,18 +2,22 @@
 {% load static %}
 {% block content %}
     {% verbatim %}
-    <div>
-        <label for="form-name">Username:</label>
-        <input v-model="name">
-        <label for="form-site">Site:</label>
-        <input v-model="site">
-        <label for="form-topic">Topic to Study:</label>
-        <input v-model="topic">
-    </div>
-    <header>
-        <h1>Find a Partner!</h1>
-    </header>
     <section name="main-control ac-container" id="app">
+        <form v-on:submit.prevent="submit">
+            <label for="form-name">Username:</label>
+            <input v-model="name">
+            <label for="form-site">Site:</label>
+            <select v-model="site">
+                <option>Lichess</option>
+                <option>Chess.com</option>
+            </select>
+            <label for="form-topic">Topic to Study:</label>
+            <input v-model="topic">
+            <button>Send</button>
+        </form>
+        <header>
+            <h1>Find a Partner!</h1>
+        </header>
         <div>
             <player v-for="player in players" v-bind:player="player"></player>
         </div>

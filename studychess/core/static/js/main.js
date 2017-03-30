@@ -1,4 +1,5 @@
 var Vue = require('vue');
+var socket = new WebSocket('ws://localhost:8000');
 
 Vue.component('player', {
     props: ['player'],
@@ -8,15 +9,24 @@ Vue.component('player', {
 var vm = new Vue({
     el: '#app',
     data: {
+        name: '',
+        site: '',
+        topic: '',
         message: 'hello world lol',
         players: []
+    },
+    methods: {
+        submit: function (event) {
+            event.preventDefault();
+            var message = {
+                name: this.name,
+                site: this.site,
+                description: this.topic
+            }
+            socket.send(JSON.stringify(message));        
+        }
     }
 });
-
-var socket = new WebSocket('ws://localhost:8000');
-socket.onopen = function(event) {
-    console.log(event);
-}
 
 socket.onmessage = function(e) {
     message = JSON.parse(e.data);
