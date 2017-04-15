@@ -44,3 +44,5 @@ gulp.task('clean', function() {
 });
 
 gulp.task('default', ['clean', 'watch']);
+
+gulp.task('build', ['sass', 'js']);

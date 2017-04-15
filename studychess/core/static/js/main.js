@@ -3,7 +3,7 @@ var socket = new WebSocket('ws://localhost:8000');
 
 Vue.component('player', {
     props: ['player'],
-    template: '<div><p>{{ player.name }}</p><p>{{ player.site }}</p><p>{{ player.description }}</p></div>'
+    template: '<div>{{ player.name }} {{ player.site }} {{ player.description }}</div>'
 });
 
 var vm = new Vue({

@@ -18,5 +18,3 @@ RUN pip install -r /tmp/requirements.txt
 ADD package.json /var/www
 RUN npm install -g gulp
 RUN npm install
-
-CMD ["./scripts/entrypoint.sh"]

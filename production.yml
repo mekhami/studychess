@@ -1,0 +1,46 @@
+version: "2"
+services:
+  nginx:
+    restart: always
+    build: config/nginx
+    ports:
+      - "80:80"
+    volumes_from:
+      - daphne
+    depends_on:
+      - daphne
+
+  daphne: 
+    build: .
+    image: "studychess:latest"
+    env_file:
+      - app.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www
+      - /var/www/node_modules
+    depends_on:
+      - db
+      - redis
+    command: bash -c "gulp build && python studychess/manage.py migrate && cd studychess && /usr/local/bin/daphne studychess.asgi:channel_layer -p 8000 -b 0.0.0.0"
+
+  worker:
+    build: .
+    image: "studychess:latest"
+    env_file:
+      - app.env
+    depends_on:
+      - db
+      - redis
+    command: python studychess/manage.py runworker
+    volumes_from:
+      - daphne
+
+  redis:
+    image: redis
+    ports:
+        - "6379"
+
+  db:
+    image: postgres

@@ -1,0 +1,11 @@
+Thoughts on how to set up docker compose for django channels with nginx as reverse proxy.
+
+Containers:
+nginx
+web
+worker containers (probably 3)
+postgres
+redis
+
+nginx and web have a shared volume for static files
+
