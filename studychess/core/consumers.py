@@ -2,13 +2,17 @@ import json
 
 from channels import Group
 from channels.sessions import channel_session
+import logging
 
 from .models import Post
+
+logger = logging.getLogger(__name__)
 
 
 @channel_session
 def ws_message(message):
     data = json.loads(message.content['text'])
+    logger.info('message received with name {}'.format(data['name']))
     post = Post.objects.create(
         name=data['name'],
         description=data['description'],
@@ -35,7 +39,8 @@ def ws_connect(message):
 @channel_session
 def ws_disconnect(message):
     try:
-        Post.objects.get(id=message.channel_session['post']).delete()
+        post = Post.objects.get(id=message.channel_session['post']).delete()
+        logger.info('user {} disconnected'.format(post.name))
     except KeyError:
         pass
     Group("listeners").discard(message.reply_channel)

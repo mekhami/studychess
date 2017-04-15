@@ -33,7 +33,7 @@ services:
     depends_on:
       - db
       - redis
-    command: python studychess/manage.py runworker
+    command: python studychess/manage.py runworker -v 2
     volumes_from:
       - daphne
 
