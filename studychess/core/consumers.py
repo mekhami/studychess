@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 @channel_session
 def ws_message(message):
     data = json.loads(message.content['text'])
-    logger.info('message received with name {}'.format(data['name']))
+    logger.error('message received with name {}'.format(data['name']))
     post = Post.objects.create(
         name=data['name'],
         description=data['description'],
