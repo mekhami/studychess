@@ -39,10 +39,9 @@ def ws_connect(message):
 @channel_session
 def ws_disconnect(message):
     try:
-        post = Post.objects.get(id=message.channel_session['post']).delete()
+        post = Post.objects.get(id=message.channel_session['post'])
         logger.info('user {} disconnected'.format(post.name))
         Group("listeners").discard(message.reply_channel)
+        post.delete()
     except Post.DoesNotExist:
-        pass
-    except KeyError:
         pass
