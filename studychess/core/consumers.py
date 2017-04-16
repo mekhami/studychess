@@ -43,4 +43,6 @@ def ws_disconnect(message):
         logger.info('user {} disconnected'.format(post.name))
     except KeyError:
         pass
+    except AttributeError:
+        pass
     Group("listeners").discard(message.reply_channel)

@@ -3,6 +3,9 @@ import json
 from django.db import models
 from channels import Group
 from channels.binding.websockets import WebsocketBinding
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Post(models.Model):
@@ -36,7 +39,7 @@ class Post(models.Model):
         }
 
     def delete(self):
-        print('called')
+        logger.info('called delete on instance {}'.format(self.name))
         Group("listeners").send({
             'text': json.dumps({'player': self.pk, 'type': 'delete'})
         })
