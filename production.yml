@@ -20,7 +20,7 @@ services:
     volumes:
       - .:/var/www
       - /var/www/node_modules
-      - /var/log
+      - /log
     depends_on:
       - db
       - redis
