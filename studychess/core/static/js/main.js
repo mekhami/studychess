@@ -1,5 +1,5 @@
 var Vue = require('vue');
-var socket = new WebSocket('ws://localhost:8000');
+var socket = new WebSocket('ws://138.197.105.235');
 
 Vue.component('player', {
     props: ['player'],
