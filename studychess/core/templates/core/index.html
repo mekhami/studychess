@@ -3,7 +3,7 @@
 {% block content %}
     {% verbatim %}
     <section name="main-control ac-container" id="app">
-        <form v-on:submit.prevent="submit">
+        <form v-on:submit.prevent="submit" id="userform">
             <label for="form-name">Username:</label>
             <input v-model="name">
             <label for="form-site">Site:</label>
