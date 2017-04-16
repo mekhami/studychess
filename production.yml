@@ -20,7 +20,7 @@ services:
     volumes:
       - .:/var/www
       - /var/www/node_modules
-      - /log
+      - /home/mekhami/logs:/log
     depends_on:
       - db
       - redis
