@@ -24,7 +24,7 @@ var vm = new Vue({
                 description: this.topic
             }
             socket.send(JSON.stringify(message));        
-            document.getElementById("userform").outerHTML = '';
+            document.getElementById("userform").style.display = 'none';
         }
     }
 });
